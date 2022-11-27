@@ -1,0 +1,216 @@
+<!DOCTYPR html>
+
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Birthday Gift - CodeMasala</title>
+
+        <!-- Link CSS Style.css file-->
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/balloon.css">
+        <link rel="stylesheet" href="css/envelope.css">
+        <link rel="stylesheet" href="css/images.css">
+        <link rel="stylesheet" href="css/cow.css">
+
+    </head>
+
+    <body>
+        <div class='moon'>
+            <div class='crater1'></div>
+            <div class='crater2'></div>
+            <div class='crater3'></div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+        <div id="sea"></div>
+        <div id="beach"></div>
+
+        <img src="https://dl.dropbox.com/s/2k0mtrxc2dqurmh/jumping.png" alt="Jumping-people" id="people" />
+
+        <div class="pyro">
+            <div class="before">
+
+            </div>
+            <div class="after">
+
+            </div>
+            <div class="balloon_container">
+                <div class="balloon">
+                    <div><span>H</span></div>
+                    <div><span>A</span></div>
+                    <div><span>P</span></div>
+                    <div><span>P</span></div>
+                    <div><span>Y</span></div>
+                    <div><span>B</span></div>
+                    <div><span>I</span></div>
+                    <div><span>R</span></div>
+                    <div><span>T</span></div>
+                    <div><span>H</span></div>
+                    <div><span>D</span></div>
+                    <div><span>A</span></div>
+                    <div><span>Y</span></div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+        <div class="letter_container" id="letter_container">
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="letter">
+                        <div class="text">
+                            <strong>Dear Person.</strong>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Numquam labore omnis minus maiores laboriosam, facere in beatae esse.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="heart" ></div>
+            </div>
+
+        </div>
+        <div id="merrywrap" class="merrywrap">
+            <div class="giftbox">
+                <div class="cover">
+                    <div></div>
+                </div>
+
+                <div class="box"></div>
+            </div>
+            <div id="message">
+               
+            </div>
+
+            <div class="icons">
+                <div class="row">
+                    <span>H</span>
+                    <span>a</span>
+                    <span>p</span>
+                    <span>p</span>
+                    <span>y</span>
+
+                </div>
+                <div class="row">
+                    <span>B</span>
+                    <span>i</span>
+                    <span>r</span>
+                    <span>t</span>
+                    <span>h</span>
+                    <span>d</span>
+                    <span>a</span>
+                    <span>y</span>
+                </div>
+
+                <div class="row">
+                    <span>C</span>
+                    <span>ô</span>
+                    <span>T</span>
+                    <span>r</span>
+                    <span>ú</span>
+                    <span>c</span>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="images">
+          
+        </div>
+
+        <div id="video">
+            <!-- <a href="#images">Click here</a> -->
+        </div> 
+        <audio id="player" loop >
+            <source src="music/music.mp3" type="audio/mp3">
+            <!-- <embed src="./music.mp3" loop="true" hidden="true" autostart="true"> -->
+        </audio>
+        <script src="js/images.js"></script>
+        <script src="js/index.js"></script>
+        <script>
+            const msgContainer  =document.getElementById("message")
+            const msgText = 'Nhân dịp sinh nhật cô, tụi con kính chúc cô mãi trẻ đẹp, hạnh phúc, mọi thứ đều thuận theo ý muốn và luôn cười thật tươi cùng 12.1! '
+            let html = ''
+            const envelope = document.querySelector('.envelope-wrapper');
+            const letter_container = document.getElementById('letter_container')
+            envelope.addEventListener('click', () => {
+                console.log('hello')
+                envelope.classList.toggle('flap');
+                setTimeout(() => {
+                    letter_container.style.display = 'none'
+                    writeMsg()
+                }, 3000)
+            })
+            function writeMsg() {
+                let wordIndex = 0
+                msgContainer.style.width = '15em'
+                msgContainer.style.height = '6em'
+                setTimeout(()=> {
+
+                    setInterval(() => {
+                        if (wordIndex < msgText.length) {
+    
+                            html += msgText[wordIndex]
+                            msgContainer.innerHTML = html
+                            wordIndex++
+                        }
+                    }, 100)
+                },1500)
+            }
+
+
+            document.addEventListener("mousemove", function (e) {
+            var body = document.querySelector('body');
+            var heart = document.createElement("b");
+            var x = e.offsetX;
+            var y = e.offsetY;
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            var size = Math.random() * 35;
+            heart.style.width = size + 'px';
+            heart.style.height = size + 'px';
+            body.appendChild(heart);
+
+            setTimeout(function () { heart.remove(); }, 1000);
+        })
+
+
+        
+        </script>
+          <style>
+            b {
+                position: absolute;
+                background: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/248287349_319255386817581_3312564392096641062_n.png?_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=IEknNb5HJxMAX-EggYP&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS3-mCheKCD3MJJjAc2sEmrJtSH4wpY8IM49bNWcfth9g&oe=63A78777');
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                animation: heart 2s linear infinite;
+    
+                background-size: cover;
+    
+            }
+    
+            @keyframes heart {
+                0% {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                    filter: hue-rotate(0deg);
+                }
+    
+                100% {
+                    transform: translate(-50%, -1000%);
+                    opacity: 0;
+                    filter: hue-rotate(720deg);
+                }
+    
+            }
+        </style>
+    </body>
+
+    </html>
